@@ -52,7 +52,7 @@ This project is a command-driven text editor inspired by Vim, featuring essentia
    ```
 3. Compile the program:  
    ```sh
-   g++ -o texteditor main.cpp FileManager.cpp TextEditor.cpp Line.cpp -std=c++11
+   g++ -o texteditor main.cpp FileManager.cpp TextEditor.cpp Line.cpp EditorStatus.cpp -std=c++11
    ```
 4. Run the editor:  
    ```sh
