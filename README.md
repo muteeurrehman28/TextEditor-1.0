@@ -66,10 +66,6 @@ This project is a command-driven text editor inspired by Vim, featuring essentia
 - Use `/pattern` to search, `n` to find the next occurrence, and `N` for the previous one.
 - Use `:s/old/new/g` to replace all occurrences on the current line.
 
-### Screenshots  
-**Editor in action:**  
-![Editor Screenshot](screenshot.png)  
-
 ## FAQs  
 ### 1. How do I enter and exit insert mode?  
 - Press `i` to enter insert mode.
