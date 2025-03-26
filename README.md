@@ -40,6 +40,62 @@ This project is a command-driven text editor inspired by Vim, featuring essentia
 - Displays the filename and a `+` if there are unsaved changes.  
 - Displays current line and column position.  
 
+## How to Use  
+### Installation  
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/muteeurrehman28/TextEditor-1.0.git
+   ```
+2. Navigate to the project directory:  
+   ```sh
+   cd TextEditor-1.0
+   ```
+3. Compile the program:  
+   ```sh
+   g++ -o texteditor main.cpp FileManager.cpp TextEditor.cpp Line.cpp -std=c++11
+   ```
+4. Run the editor:  
+   ```sh
+   ./texteditor
+   ```
+
+### Basic Usage  
+- Start typing in insert mode (`i` to enter insert mode, `ESC` to exit).
+- Use `:w filename` to save the file.
+- Use `:q` to quit, or `:q!` to force quit without saving.
+- Use `/pattern` to search, `n` to find the next occurrence, and `N` for the previous one.
+- Use `:s/old/new/g` to replace all occurrences on the current line.
+
+### Screenshots  
+**Editor in action:**  
+![Editor Screenshot](screenshot.png)  
+
+## FAQs  
+### 1. How do I enter and exit insert mode?  
+- Press `i` to enter insert mode.
+- Press `ESC` to exit insert mode.
+
+### 2. How can I save my work?  
+- Use `:w filename` to save the file with a specific name.
+- If the file was previously opened, just use `:w` to save changes.
+
+### 3. What if I want to quit without saving?  
+- Use `:q!` to force quit without saving changes.
+
+### 4. How do I search for a word?  
+- Type `/pattern` and press `Enter` to search forward.
+- Use `n` to find the next match and `N` to find the previous match.
+
+### 5. How can I replace text?  
+- Use `:s/old/new/` to replace the first occurrence of `old` with `new` on the current line.
+- Use `:s/old/new/g` to replace all occurrences on the current line.
+
+### 6. What if I delete something by mistake?  
+- Unfortunately, undo is not yet implemented. Be cautious when deleting lines!
+
+### 7. How do I contribute to this project?  
+- Fork the repository, create a new branch, and submit a pull request with your changes.
+
 ## Implementation Details  
 
 ### File Handling  
@@ -90,67 +146,6 @@ public:
 };
 ```
 
-## Error Handling  
-
-### File Operations  
-- Handle errors like:  
-  - File not found.  
-  - Permission denied.  
-  - Disk full.  
-  - File already exists.  
-
-```cpp
-void handleFileError(const std::string& operation, const std::string& filename, int errorCode);
-```
-
-### Search and Replace  
-- Handle cases such as:  
-  - Pattern not found.  
-  - Invalid pattern.  
-  - Empty search string.  
-
-```cpp
-void handleSearchError(const std::string& pattern, SearchErrorType error);
-```
-
-### Command Mode  
-- Detect invalid command syntax, non-existent line numbers, and invalid operations.  
-
-```cpp
-void handleCommandError(const std::string& cmd, CommandErrorType error);
-```
-
-## Testing  
-
-### File Operation Tests  
-```cpp
-void testFileOperations() {
-    assert(editor.loadFile("test.txt"));
-    editor.insertText("Test content");
-    assert(editor.saveFile("output.txt"));
-    assert(editor.hasUnsavedChanges());
-}
-```
-
-### Search Tests  
-```cpp
-void testSearch() {
-    editor.loadFile("test.txt");
-    assert(editor.search("pattern"));
-    assert(editor.findNext());
-    assert(editor.replace("old", "new"));
-}
-```
-
-### Command Tests  
-```cpp
-void testCommands() {
-    editor.executeCommand(":d 5");
-    editor.executeCommand("3dd");
-    editor.executeCommand(">>");
-}
-```
-
 ## Contribution  
 We welcome contributions! Feel free to fork the repository, submit pull requests, or open issues for any bugs or feature requests.  
 
@@ -158,3 +153,4 @@ We welcome contributions! Feel free to fork the repository, submit pull requests
 This project is licensed under the MIT License.  
 
 ---
+
